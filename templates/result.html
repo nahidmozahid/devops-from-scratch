@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Your Motivation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+    <div class="container">
+        <h1>Your Upcoming Birthday: {{ birthday }}</h1>
+        <p>Turning <strong>{{ age }}</strong> years old!</p>
+        <p>Only <strong>{{ days_left }}</strong> days to go!</p>
+        <div class="speech-box">
+            <h2>Motivational Message for You:</h2>
+            <p>"{{ speech }}"</p>
+        </div>
+        <a href="{{ url_for('index') }}" class="back-btn">Try Again</a>
+    </div>
+</body>
+</html>
