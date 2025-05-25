@@ -11,7 +11,7 @@ services:
       - mongo
 
   mongo:
-    image: mongo-docker-project:latest
+    image: mongo:latest
     ports:
       - "27019:27017"
     volumes:
