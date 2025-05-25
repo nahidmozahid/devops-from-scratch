@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/birthdaydb
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo-docker-project:latest
+    ports:
+      - "27019:27017"
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:

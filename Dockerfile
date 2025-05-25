@@ -4,18 +4,18 @@ FROM python:3.10-slim
 # Set working directory
 WORKDIR /app
 
-# Copy requirements (if you have one, otherwise just install flask)
-# We'll create requirements.txt with Flask
+# Copy requirements file and install dependencies
 COPY requirements.txt .
-
-# Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy app source code
+# Copy all source code
 COPY . .
 
-# Expose port 5008
-EXPOSE 5008
+# Expose port 5000 (Flask app port)
+EXPOSE 5000
+
+# Set environment variable for Flask to listen on all interfaces
+ENV FLASK_RUN_HOST=0.0.0.0
 
 # Command to run the app
 CMD ["python", "app.py"]
